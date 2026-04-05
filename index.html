@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <title>Hemanth Reddy Gudla</title>
+  <meta content="Hemanth Reddy Gudla" name="title">
+
+  <script>
+    function setTheme(e) {
+      document.documentElement.classList.toggle("dark-theme", e === "dark");
+      localStorage.setItem("theme", e);
+    }
+    let theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    setTheme(theme);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link crossorigin rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <link integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" onload='this.media="all"' crossorigin href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css" media="print" referrerpolicy="no-referrer" rel="stylesheet">
+  <link integrity="sha512-58P9Hy7II0YeXLv+iFiLCv1rtLW47xmiRpC1oFafeKNShp8V5bKV/ciVtYqbk2YfxXQMt58DjNfkXFOn62xE+g==" onload='this.media="all"' crossorigin href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css" media="print" referrerpolicy="no-referrer" rel="stylesheet">
+  <link integrity="sha512-DzC7h7+bDlpXPDQsX/0fShhf1dLxXlHuhPBkBo/5wJWRoTU6YL7moeiNoej6q3wh5ti78C57Tu1JwTNlcgHSjg==" onload='this.media="all"' crossorigin href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/solid.min.css" media="print" referrerpolicy="no-referrer" rel="stylesheet">
+
+  <style>
+    /* ── THEME ── */
+    :root {
+      --bg:        #ffffff;
+      --fg:        #111111;
+      --fg-muted:  #555555;
+      --link:      #1e1e9e;
+      --link-vis:  #5a189a;
+      --border:    #d8d8d8;
+      --nav-sep:   #bbbbbb;
+    }
+
+    .dark-theme {
+      --bg:        #181818;
+      --fg:        #e4e4e4;
+      --fg-muted:  #999999;
+      --link:      #809fff;
+      --link-vis:  #bf8fff;
+      --border:    #333333;
+      --nav-sep:   #444444;
+    }
+
+    /* ── BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+      font-size: 0.9375rem;
+      font-weight: 300;
+      line-height: 1.85;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:visited { color: var(--link-vis); }
+    a:hover { text-decoration: underline; }
+
+    p { margin-bottom: 0.9rem; }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.8rem 0;
+    }
+
+    /* ── LAYOUT: exact same narrow column as reference ── */
+    header, main, footer {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 0 1.1rem;
+    }
+
+    /* ── HEADER ── */
+    header { padding-top: 1.6rem; }
+
+    .title-bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 0.45rem;
+    }
+
+    .title-bar h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .title-bar h2 a {
+      color: var(--fg);
+      text-decoration: none;
+    }
+    .title-bar h2 a:hover { text-decoration: none; }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      color: var(--fg-muted);
+      font-size: 1.05rem;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    #theme-toggle:hover { color: var(--fg); }
+
+    /* nav: links separated by spaces, icons at the end */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0 0.9rem;
+      font-size: 0.88rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+    }
+
+    nav a {
+      color: var(--fg);
+      text-decoration: none;
+    }
+    nav a:visited { color: var(--fg); }
+    nav a:hover { text-decoration: underline; }
+
+    nav .nav-icon {
+      color: var(--fg-muted);
+      font-size: 1rem;
+      transition: color 0.15s;
+    }
+    nav .nav-icon:hover { color: var(--fg); }
+
+    /* ── MAIN ── */
+    main {
+      padding-top: 0.3rem;
+      padding-bottom: 3.5rem;
+    }
+
+    main img {
+      display: block;
+    }
+
+    /* headings inside main */
+    main h3 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      margin: 1.6rem 0 0.5rem;
+    }
+
+    /* ── PROJECTS / PAPERS list ── */
+    .entry-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .entry-list li {
+      margin-bottom: 1.1rem;
+    }
+
+    .entry-list .entry-title {
+      font-weight: 700;
+    }
+
+    .entry-list .entry-venue {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--fg-muted);
+    }
+
+    .entry-list .entry-desc {
+      font-size: 0.88rem;
+      color: var(--fg-muted);
+    }
+
+    .entry-list .entry-links {
+      font-size: 0.85rem;
+    }
+
+    .entry-list .entry-links a { margin-right: 0.6rem; }
+
+    /* small tag pill */
+    .pill {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.72rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.05em 0.4em;
+      color: var(--fg-muted);
+      vertical-align: middle;
+      margin-left: 0.35em;
+    }
+
+    /* interests as a plain comma-separated paragraph */
+    .interests {
+      font-size: 0.9rem;
+    }
+
+    /* ── QUOTE ── */
+    .epigraph {
+      margin-top: 1.8rem;
+    }
+    .epigraph p {
+      font-style: italic;
+      margin-bottom: 0.15rem;
+    }
+    .epigraph .attr {
+      text-align: right;
+      font-size: 0.88rem;
+      color: var(--fg-muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding-top: 0.6rem;
+      padding-bottom: 2.5rem;
+      font-size: 0.8rem;
+      color: var(--fg-muted);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 480px) {
+      img[style*="float:right"] {
+        float: none !important;
+        margin: 0 auto 1rem !important;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("theme-toggle").addEventListener("click", function (e) {
+        e.preventDefault();
+        theme = theme === "dark" ? "light" : "dark";
+        setTheme(theme);
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+<header>
+  <div class="title-bar">
+    <h2><a href="#">Hemanth Reddy Gudla</a></h2>
+    <button id="theme-toggle" title="Toggle theme">●</button>
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#writing">Writing</a>
+    <a href="https://github.com/" target="_blank" rel="noopener" class="nav-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+    <a href="https://linkedin.com/in/hemanthreddygudla" target="_blank" rel="noopener" class="nav-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="mailto:hemanthreddygudla@email.com" class="nav-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
+  </nav>
+  <br>
+</header>
+
+<main>
+
+  <p>
+    I am an emerging AI Chip Architect and RISC-V SoC designer focused on building high-performance, energy-efficient AI accelerators using open-source silicon ecosystems. My work spans the full stack — from transistor-level CMOS physics to RTL design and system architecture.
+  </p>
+
+  <img
+    alt="Hemanth Reddy Gudla"
+    src="https://ui-avatars.com/api/?name=H+R+G&size=160&background=c8c8c8&color=333333&rounded=true&bold=true&font-size=0.45"
+    style="float:right; user-select:none; border-radius:50%; margin:0 0 12px 18px;"
+    height="160" width="160"
+  >
+
+  <p>
+    I specialize in digital architecture and VLSI, with deep focus on arithmetic unit design — Wallace Tree multipliers, Carry Save Adder trees, fast adder families — and on timing analysis, propagation delay, and critical path optimization. I reason from transistor charging behavior all the way up to full-chip organization.
+  </p>
+
+  <p>
+    My trajectory is toward designing AI accelerators and full RISC-V SoCs using open-source EDA flows. I also work with embedded hardware (ESP32-S3, PCB design, UART/SWD debugging) — I am not only a theorist, but a builder.
+  </p>
+
+  <br>
+  <hr>
+  <br>
+
+  <p class="interests">
+    My technical interests include <strong>AI accelerator architecture</strong>, <strong>RISC-V SoC design</strong>,
+    arithmetic unit optimization, CMOS circuit-level reasoning, timing closure,
+    hardware–software co-design, and open-source silicon (OpenLane / SkyWater PDK).
+  </p>
+
+  <hr>
+
+  <h3 id="projects">Projects</h3>
+
+  <ul class="entry-list">
+
+    <li>
+      <span class="entry-title">Wallace Tree Multiplier</span>
+      <span class="pill">RTL</span>
+      <div class="entry-venue">Verilog · Carry Save Adder Reduction · Timing Analysis</div>
+      <div class="entry-desc">
+        Designed a high-speed multiplier using CSA partial-product reduction. Benchmarked critical path delay against ripple-carry designs and analysed area–performance trade-offs at the gate level.
+      </div>
+      <div class="entry-links"><a href="https://github.com/" target="_blank">GitHub</a></div>
+    </li>
+
+    <li>
+      <span class="entry-title">RISC-V Pipelined CPU</span>
+      <span class="pill">WIP</span>
+      <div class="entry-venue">SystemVerilog · RV32I · Pipeline Hazard Handling</div>
+      <div class="entry-desc">
+        Building a single-cycle and subsequently pipelined RISC-V RV32I core from scratch in SystemVerilog. Targeting data/control hazard resolution, register forwarding paths, and synthesis via open-source EDA flows.
+      </div>
+      <div class="entry-links"><a href="https://github.com/" target="_blank">GitHub</a></div>
+    </li>
+
+    <li>
+      <span class="entry-title">ESP32-S3 Custom Hardware Platform</span>
+      <span class="pill">PCB</span>
+      <div class="entry-venue">ESP32-S3-FN8 · PCB Design &amp; Fabrication · UART / SWD</div>
+      <div class="entry-desc">
+        Designed and fabricated a custom PCB around the ESP32-S3 microcontroller. Implemented and validated UART and SWD debugging interfaces under real operating conditions.
+      </div>
+    </li>
+
+  </ul>
+
+  <hr>
+
+  <h3 id="writing">Writing</h3>
+
+  <ul class="entry-list">
+
+    <li>
+      <span class="entry-title"><a href="#">How I Think About Propagation Delay</a></span>
+      <div class="entry-venue">April 2025</div>
+      <div class="entry-desc">A first-principles walkthrough of delay analysis — from RC models at transistor level to critical path identification in synthesized netlists.</div>
+    </li>
+
+    <li>
+      <span class="entry-title"><a href="#">Optimizing a Wallace Tree: A Case Study</a></span>
+      <div class="entry-venue">March 2025</div>
+      <div class="entry-desc">Step-by-step notes from my multiplier project — why CSA reduction works, where the critical path lives, and what I would do differently next time.</div>
+    </li>
+
+    <li>
+      <span class="entry-title"><a href="#">Why I Am Betting on RISC-V and Open Silicon</a></span>
+      <div class="entry-venue">February 2025</div>
+      <div class="entry-desc">Thoughts on why open ISAs and open EDA flows are the most consequential shift in chip design since the fabless model — and what it means for AI hardware.</div>
+    </li>
+
+  </ul>
+
+  <br>
+  <hr>
+  <br>
+
+  <div class="epigraph">
+    <p>The art of doing mathematics consists in finding that special case which contains all the germs of generality.</p>
+    <div class="attr">― David Hilbert</div>
+  </div>
+
+</main>
+
+<footer>
+  <p></p>
+</footer>
+
+</body>
+</html>
